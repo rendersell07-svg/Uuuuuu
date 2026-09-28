@@ -29,11 +29,12 @@ bot = Client(
 )
 
 # .....,.....,.......,...,.......,....., .....,.....,.......,...,.......,.....,
+# FIXED: Changed tg:// to https:// in the Contact button
 keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton("🎙️ Commands", callback_data="cmd_command")],
             [InlineKeyboardButton("💎 Features", callback_data="feat_command"), InlineKeyboardButton("⚙️ Settings", callback_data="setttings")],
             [InlineKeyboardButton("💳 Suscribation", callback_data="upgrade_command")],
-            [InlineKeyboardButton(text="📞 Contact", url=f"tg://openmessage?user_id={OWNER}"), InlineKeyboardButton(text="🛠️ Repo", url="GHANTA")],
+            [InlineKeyboardButton(text="📞 Contact", url=f"https://t.me/{OWNER}"), InlineKeyboardButton(text="🛠️ Repo", url="https://github.com/nikhilsaiiop/saini-txt-direct")],
         ])      
 
 @bot.on_message(filters.command("start"))
@@ -95,7 +96,7 @@ async def back_to_main_menu(client, callback_query):
 
 @bot.on_message(filters.command(["id"]))
 async def id_command(client, message: Message):
-    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton(text="Send to Owner", url=f"tg://openmessage?user_id={OWNER}")]])
+    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton(text="Send to Owner", url=f"https://t.me/{OWNER}")]])
     chat_id = message.chat.id
     text = f"<blockquote expandable><b>The ID of this chat id is:</b></blockquote>\n`{chat_id}`"
     
